@@ -11,7 +11,7 @@ console.log('Searching...');
 const queryType = process.argv.slice(2)[0];
 
 
-knex.select('*').from('famous_people').where({first_name : "Paul" }).orWhere({last_name : "Paul" }).asCallback((err, res) => {
+knex.select('*').from('famous_people').where({first_name : queryType }).orWhere({last_name : queryType }).asCallback((err, res) => {
       console.log(`Found ${res.length} person(s) by the name of '${queryType}'`);
       for (let index in res){
         let custdate = res[index].birthdate.toLocaleDateString();
